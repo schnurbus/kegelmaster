@@ -113,7 +113,7 @@ class Player extends Authenticatable
     {
         return Attribute::make(
             get: fn (int $value) => $value / 100,
-            set: fn (float $value) => $value * 100,
+            set: fn (float $value) => (int) round($value * 100),
         );
     }
 
@@ -121,7 +121,7 @@ class Player extends Authenticatable
     {
         return Attribute::make(
             get: fn (int $value) => $value / 100,
-            set: fn (float $value) => $value * 100,
+            set: fn (float $value) => (int) round($value * 100),
         );
     }
 }

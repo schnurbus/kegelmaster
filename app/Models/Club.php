@@ -87,7 +87,7 @@ class Club extends Model
 
     public function setInitialBalanceAttribute($value)
     {
-        $this->attributes['initial_balance'] = $value * 100;
+        $this->attributes['initial_balance'] = (int) round($value * 100);
     }
 
     public function getInitialBalanceAttribute($value)
@@ -99,7 +99,7 @@ class Club extends Model
     {
         return Attribute::make(
             get: fn (int $value): float => $value / 100,
-            set: fn (float $value) => $value * 100,
+            set: fn (float $value) => (int) round($value * 100),
         );
     }
 
@@ -115,7 +115,7 @@ class Club extends Model
 
     public function setBaseFeeAttribute($value)
     {
-        $this->attributes['base_fee'] = $value * 100;
+        $this->attributes['base_fee'] = (int) round($value * 100);
     }
 
     public function getBaseFeeAttribute($value)

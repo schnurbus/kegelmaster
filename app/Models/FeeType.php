@@ -66,7 +66,7 @@ class FeeType extends Model
     {
         return Attribute::make(
             get: fn (int $value) => $value / 100,
-            set: fn (float $value) => $value * 100,
+            set: fn (float $value) => (int) round($value * 100),
         );
     }
 }
