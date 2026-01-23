@@ -92,6 +92,6 @@ class Transaction extends Model
 
     public function getAmountAttribute($value)
     {
-        return $value / 100;
+        return (float) ($value / 100);
     }
 }

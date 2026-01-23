@@ -47,7 +47,7 @@ it('creates a expense transaction without player_id', function () {
 
     expect($transaction)->toBeInstanceOf(Transaction::class)
         ->and($transaction->type)->toBe(TransactionType::EXPENSE)
-        ->and($transaction->amount)->toBe(100)
+        ->and($transaction->amount)->toBe(100.0)
         ->and($transaction->player_id)->toBeNull()
         ->and($transaction->club_id)->toBe($club->id);
 });
@@ -98,7 +98,7 @@ it('creates a simple payment transaction for single player', function () {
 
     expect($transaction)->toBeInstanceOf(Transaction::class)
         ->and($transaction->type)->toBe(TransactionType::PAYMENT)
-        ->and($transaction->amount)->toBe(30)
+        ->and($transaction->amount)->toBe(30.0)
         ->and($transaction->player_id)->toBe($player->id);
 });
 
@@ -128,14 +128,14 @@ it('creates payment with tip when amount exceeds balance and auto_tip is true', 
 
     expect($transaction)->toBeInstanceOf(Transaction::class)
         ->and($transaction->type)->toBe(TransactionType::PAYMENT)
-        ->and($transaction->amount)->toBe(50);
+        ->and($transaction->amount)->toBe(50.0);
 
     $tipTransaction = Transaction::where('player_id', $player->id)
         ->where('type', TransactionType::TIP)
         ->first();
 
     expect($tipTransaction)->not->toBeNull()
-        ->and($tipTransaction->amount)->toBe(20);
+        ->and($tipTransaction->amount)->toBe(20.0);
 });
 
 it('distributes payment evenly among multiple players', function () {

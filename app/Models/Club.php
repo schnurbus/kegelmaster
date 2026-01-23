@@ -92,13 +92,13 @@ class Club extends Model
 
     public function getInitialBalanceAttribute($value)
     {
-        return $value / 100;
+        return (float) ($value / 100);
     }
 
     protected function balance(): Attribute
     {
         return Attribute::make(
-            get: fn (int $value): float => $value / 100,
+            get: fn (int $value): float => (float) ($value / 100),
             set: fn (float $value) => (int) round($value * 100),
         );
     }
@@ -120,6 +120,6 @@ class Club extends Model
 
     public function getBaseFeeAttribute($value)
     {
-        return $value / 100;
+        return (float) ($value / 100);
     }
 }
