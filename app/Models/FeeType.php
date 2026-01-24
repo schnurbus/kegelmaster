@@ -65,8 +65,8 @@ class FeeType extends Model
     protected function amount(): Attribute
     {
         return Attribute::make(
-            get: fn (int $value) => $value / 100,
-            set: fn (float $value) => $value * 100,
+            get: fn (int $value) => (float) ($value / 100),
+            set: fn (float $value) => (int) round($value * 100),
         );
     }
 }
