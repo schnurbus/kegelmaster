@@ -13,7 +13,7 @@
         "@eslint/js": "^9.19.0",
         "@iconify-json/radix-icons": "^1.2.2",
         "@iconify/vue": "^5.0.0",
-        "@types/node": "^22.13.10",
+        "@types/node": "^24.0.0",
         "@types/uuid": "^11.0.0",
         "@vue/eslint-config-typescript": "^14.5.0",
         "eslint": "^9.22.0",
